@@ -1,0 +1,112 @@
+*{box-sizing: border-box;}
+body,html{margin:0;padding:0;height:100%;}
+body{
+    background-image: url("imagens/fundo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#site {
+    padding: 10px 20px;
+    margin: 30px auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 400px;
+    background: #fff;
+    font-size: 16px;
+    text-align: center;
+}
+@media screen and (max-width: 480px){
+    #site {
+        padding: 10px 20px;
+        margin: 10px auto;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        width: 95%;
+    }
+}
+hr {
+    clear: both;
+}
+a {
+    text-decoration: none;
+    color: green;
+}
+form {
+    margin: 10px 0;
+}
+label {
+    width: 100%;
+    display: block;
+    text-align: right;
+}
+input, select {
+    width: 80%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+table {
+    width: 100%;
+    margin: 10px 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+tr:first-child th {
+    background: #31BC85;
+    color: #fff;
+}
+td, th {
+    border: 1px solid #aaa;
+    padding: 5px;
+}
+td:nth-child(3) {
+    text-align: center;
+}
+tr:nth-child(even) {
+    background: #F5F5F5;
+}
+tr:nth-child(odd) {
+    background: #fff;
+}
+button {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: rgb(37, 96, 223);
+    color: white;
+}
+p {
+    text-align: center;
+}
+#link_cadastrar, #link_alterar, #link_excluir {
+    background-repeat: no-repeat;
+    background-position: right;
+}
+hr{
+    color: #ddd;
+}
+#link_alterar, #link_excluir {
+    background-size: 20px;
+    width: 20px;
+    display: inline-block;
+}
+#link_excluir {
+    background-image: url("imagens/excluir.svg");
+    background-size: 30px;
+    height: 30px;
+    width: 30px;
+}
+#link_cadastrar:hover {
+    background-color: #eee;
+}
+#pedirAjuda{
+    padding: 0 10px;
+    text-align:center;
+    display:inline-block;
+    line-height:60px;
+}
+#pedirAjuda img{
+    width:40px;
+}
+#pedirAjuda:hover img{
+    width: 50px;
+}
