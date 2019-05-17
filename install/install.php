@@ -42,12 +42,12 @@
             CONSTRAINT fk_log_usuarios
                 FOREIGN KEY (id_usuario_solicitou)
                 REFERENCES usuarios (id_usuario)
-                ON DELETE NO ACTION
+                ON DELETE CASCADE
                 ON UPDATE NO ACTION,
             CONSTRAINT fk_log_usuarios1
                 FOREIGN KEY (id_usuario_finalizou)
                 REFERENCES usuarios (id_usuario)
-                ON DELETE NO ACTION
+                ON DELETE CASCADE
                 ON UPDATE NO ACTION)
             ENGINE = InnoDB
             DEFAULT CHARACTER SET = utf8");
