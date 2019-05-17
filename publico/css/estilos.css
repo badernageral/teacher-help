@@ -1,7 +1,13 @@
-*{box-sizing: border-box;}
-body,html{margin:0;padding:0;height:100%;}
+*{
+    box-sizing: border-box;
+}
+body, html{
+    margin:0;
+    padding:0;
+    height:100%;
+}
 body{
-    background-image: url("imagens/fundo.png");
+    background-image: url("../imagens/fundo.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -24,8 +30,20 @@ body{
         width: 95%;
     }
 }
-hr {
-    clear: both;
+nav{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    margin-bottom: 20px;
+}
+nav a{
+    border-right: 1px solid #000;
+    padding-right: 5px;
+    margin: 0;
+    font-size: 14px;
+}
+nav a:last-child{
+    border-right: none;
 }
 a {
     text-decoration: none;
@@ -40,7 +58,7 @@ label {
     text-align: right;
 }
 input, select {
-    width: 80%;
+    width: 70%;
     box-sizing: border-box;
     margin-bottom: 10px;
 }
@@ -57,6 +75,12 @@ tr:first-child th {
 td, th {
     border: 1px solid #aaa;
     padding: 5px;
+}
+#ranking{
+    background-image:url('../imagens/ranking.svg');
+    background-size:25px;
+    background-repeat:no-repeat;
+    background-position:center center;
 }
 td:nth-child(3) {
     text-align: center;
@@ -81,22 +105,28 @@ p {
     background-repeat: no-repeat;
     background-position: right;
 }
-hr{
-    color: #ddd;
-}
-#link_alterar, #link_excluir {
+#link_cadastrar, #link_alterar, #link_excluir {
     background-size: 20px;
     width: 20px;
     display: inline-block;
 }
-#link_excluir {
-    background-image: url("imagens/excluir.svg");
+#link_cadastrar {
+    background-image: url("../imagens/cadastrar.svg");
     background-size: 30px;
     height: 30px;
     width: 30px;
 }
-#link_cadastrar:hover {
-    background-color: #eee;
+#link_alterar {
+    background-image: url("../imagens/alterar.svg");
+    background-size: 30px;
+    height: 30px;
+    width: 30px;
+}
+#link_excluir {
+    background-image: url("../imagens/excluir.svg");
+    background-size: 30px;
+    height: 30px;
+    width: 30px;
 }
 #pedirAjuda{
     padding: 0 10px;
@@ -109,4 +139,41 @@ hr{
 }
 #pedirAjuda:hover img{
     width: 50px;
+}
+figure{
+    margin:0;
+}
+figure img{
+    width:70px;
+}
+figure figcaption{
+    color:#007700;
+    font-size:12px;
+}
+img{
+    vertical-align:middle;
+}
+#login{
+    text-align: center;
+}
+#login div{
+    text-align:center;
+}
+#login button{
+    width:70%;
+    font-size:20px;
+}
+#login input{
+    font-size:18px;
+}
+#login img{
+    width: 80%;
+    margin-bottom:10px
+}
+.mensagem_erro{
+    text-align:center;
+    color:red;
+}
+.centro{
+    text-align: center;
 }
