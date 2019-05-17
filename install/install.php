@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-    include "../classes/conexao.php";
+    include "../classes/Conexao.php";
     $objeto = new Conexao();
     try{
         $objeto->conectarSemBanco();
