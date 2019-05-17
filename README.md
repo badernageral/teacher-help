@@ -1,5 +1,5 @@
 # Propósito
-Enquanto em aula prática, estudantes solicitam ajuda ao professor e entram em uma fila de espera
+Enquanto em aula prática, estudantes solicitam ajuda ao professor e entram em uma fila de espera.
 
 # Como instalar
 Clone o repositório em alguma pasta do seu servidor web e abra o arquivo de instalação no seu browser preferido:
