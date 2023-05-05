@@ -54,6 +54,6 @@
     <p>Banco de dados criado com sucesso!</p>
     <p>Usuário: admin</p>
     <p>Senha: admin</p>
-    <p><a href="../index.php">Login</a></p>
+    <p><a href="../adm/index.php">Login</a></p>
 </body>
 </html>
