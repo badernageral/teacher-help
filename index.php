@@ -14,20 +14,25 @@ include "init.php";
 <body>
     <div id="site">
         <?php
-        if(isset($_SESSION["id_usuario"])){
+        if(isset($_SESSION["usuario"])){
             echo '<nav>';
             if(Usuario::isProfessor()){
-                echo '<a href="index.php?arquivo=usuarios/listar">Usuários</a>';
+                echo '
+                    <a href="index.php?arquivo=usuarios/listar">Usuários</a>
+                    <a href="index.php?arquivo=meus_dados/alterar">Meus dados</a>';
             }
             echo '
                 <a href="index.php?arquivo=atendimento/listar">Atendimento</a>
-                <a href="index.php?arquivo=meus_dados/alterar">Meus dados</a>
                 <a href="sair.php">Sair</a>
             </nav>';
             $arquivo = $_GET["arquivo"] ?? "atendimento/listar";
             include "modulos/$arquivo.php";
         }else{
-            include "login.php";
+            if(isset($_GET["login"]) && $_GET["login"]=="professor"){
+                include "login_professor.php";
+            }else{
+                include "login_aluno.php";
+            }
         }
         ?>
     </div>

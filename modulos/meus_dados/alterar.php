@@ -2,7 +2,7 @@
 if($_POST){
     $u = new Usuario();
     $u->alterarMeusDados($_POST);
-    header("Location: index.php?arquivo=atendimento/listar");
+    echo '<script>location.href="index.php?arquivo=atendimento/listar"</script>';
 }else{
     $linha = (new Usuario())->consultar($_SESSION["id_usuario"]);
 ?>

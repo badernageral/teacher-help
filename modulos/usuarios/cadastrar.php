@@ -2,14 +2,13 @@
 if($_POST){
     $objeto = new Usuario();
     $objeto->cadastrar($_POST);
-    header("Location: index.php?arquivo=usuarios/listar");
+    echo '<script>location.href="index.php?arquivo=usuarios/listar"</script>';
 }else{
 ?>
 <form action="" method="post" onsubmit="return verificarSenhas()">
     <label>
         Tipo: <select name="nivel" required>
             <option value="">Selecione</option>
-            <option value="Aluno">Aluno</option>
             <option value="Professor">Professor</option>
         </select>
     </label>

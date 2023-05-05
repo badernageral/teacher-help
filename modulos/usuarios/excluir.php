@@ -1,5 +1,5 @@
 <?php
 $objeto = new Usuario();
 $objeto->excluir($_GET["id"]);
-header("Location: index.php?arquivo=usuarios/listar");
+echo '<script>location.href="index.php?arquivo=usuarios/listar"</script>';
 ?>

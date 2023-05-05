@@ -10,6 +10,7 @@ if($_POST){
     $resultado = $u->login($_POST["usuario"],$_POST["senha"]);
     if($resultado){
         $_SESSION["id_usuario"] = $resultado["id_usuario"];
+        $_SESSION["usuario"] = $resultado["usuario"];
         $_SESSION["nivel"] = $resultado["nivel"];
         echo "<script>location.href='index.php';</script>";
     }else{

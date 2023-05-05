@@ -15,16 +15,15 @@ if(count($resultado)>0){
         foreach($resultado as $linha){
             echo "<tr>";
             echo "<td>".$i."º</td>";
-            echo "<td>".$linha["nome"]."</td>";
-            echo "<td>".$linha["ajuda"]."</td>";
+            echo "<td>".$linha["nome_usuario"]."</td>";
+            echo "<td>".DateTime::createFromFormat('Y-m-d H:i:s', $linha["data_solicitacao"])->format("d/m/Y H:i:s")."</td>";
             echo "<td class='centro'>";
-            if($linha["id_usuario"]==$_SESSION["id_usuario"]){
+            if(Usuario::isProfessor()){
+                echo "<a id='link_excluir' href='index.php?arquivo=atendimento/excluir&usuario=".$linha["nome_usuario"]."'>&nbsp;</a>";
+            }else if($linha["nome_usuario"]==$_SESSION["usuario"]){
                 $pediu = true;
                 echo "<a id='link_excluir' href='index.php?arquivo=atendimento/excluir'>&nbsp;</a>";
-            }
-            if(Usuario::isProfessor()){
-                echo "<a id='link_excluir' href='index.php?arquivo=atendimento/excluir&id_usuario=".$linha["id_usuario"]."'>&nbsp;</a>";
-            }
+            } 
             echo "</td>";
             echo "</tr>";
             $i++;

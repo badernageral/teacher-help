@@ -3,7 +3,7 @@ class Conexao{
     // Você deve alterar esses dados
     private $servidor = "localhost";
     private $usuario = "root";
-    private $senha = "aluno";
+    private $senha = "Db1234";
     // Somente os dados acima!
     private $banco = "teacher-help";
     public $conexao;

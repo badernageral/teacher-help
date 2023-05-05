@@ -8,7 +8,5 @@ http://localhost/teatcher-help/install/install.php
 
 # Como funciona
 
-* O pŕofessor cadastra os alunos;
-* Os alunos logam no sistema;
 * Os alunos solicitam ajuda e entram em uma fila de espera;
-* O professor acompanha a fila e após realizar o atendimento remove o aluno da mesma.
+* O professor acompanha a fila e após realizar o atendimento, remove o aluno da mesma.

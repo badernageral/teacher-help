@@ -2,7 +2,7 @@
 if($_POST){
     $objeto = new Usuario();
     $objeto->alterar($_POST);
-    header("Location: index.php?arquivo=usuarios/listar");
+    echo '<script>location.href="index.php?arquivo=usuarios/listar"</script>';
 }else{
     $id_usuario = $_GET["id"];
     $linha = (new Usuario())->consultar($id_usuario);
@@ -10,7 +10,6 @@ if($_POST){
 <form action="" method="post" onsubmit="return verificarSenhas()">
     <label>
         Tipo: <select name="nivel" required>
-            <option <?php if($linha["nivel"]=="Aluno") echo "selected"; ?> value="Aluno">Aluno</option>
             <option <?php if($linha["nivel"]=="Professor") echo "selected"; ?> value="Professor">Professor</option>
         </select>
     </label>

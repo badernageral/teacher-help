@@ -4,7 +4,7 @@ class Usuario extends Conexao{
         $this->conectar();
     }
     public function login($usuario,$senha){
-        $consulta = $this->conexao->prepare("SELECT id_usuario, nivel FROM usuarios WHERE usuario=:p1 AND senha=:p2");
+        $consulta = $this->conexao->prepare("SELECT id_usuario, nivel, usuario FROM usuarios WHERE usuario=:p1 AND senha=:p2");
         $consulta->bindValue(":p1",$usuario);
         $consulta->bindValue(":p2",md5($senha));
         $consulta->execute();
@@ -17,7 +17,7 @@ class Usuario extends Conexao{
         return $_SESSION["nivel"]=="Aluno";
     }
     public function cadastrar($valores){
-        $consulta = $this->conexao->prepare("INSERT INTO usuarios VALUES(0,:p1,:p2,:p3,null,:p4)");
+        $consulta = $this->conexao->prepare("INSERT INTO usuarios VALUES(0,:p1,:p2,:p3,:p4)");
         $consulta->bindValue(":p1", $valores["nome"]);
         $consulta->bindValue(":p2", $valores["usuario"]);
         $consulta->bindValue(":p3", md5($valores["senha"]));
@@ -61,7 +61,7 @@ class Usuario extends Conexao{
         return $consulta->fetchAll();
     }
     public function listarAtendimentos(){
-        $consulta = $this->conexao->prepare("SELECT * FROM usuarios where ajuda is not null order by ajuda ASC");
+        $consulta = $this->conexao->prepare("SELECT * FROM atendimentos where data_finalizacao is null order by data_solicitacao ASC");
         $consulta->execute();
         return $consulta->fetchAll();
     }
@@ -72,20 +72,20 @@ class Usuario extends Conexao{
         return $consulta->fetch();
     }
     public function pedirAjuda(){
-        $consulta = $this->conexao->prepare("UPDATE usuarios SET ajuda=NOW() WHERE id_usuario=:p1");
-        $consulta->bindValue(":p1",$_SESSION["id_usuario"]);
-        $consulta->execute();
-        $consulta = $this->conexao->prepare("INSERT INTO log VALUES(0,:p1,NOW(),null,null)");
-        $consulta->bindValue(":p1",$_SESSION["id_usuario"]);
+        $consulta = $this->conexao->prepare("INSERT INTO atendimentos VALUES(0,:p1,NOW(),null,null)");
+        $consulta->bindValue(":p1",$_SESSION["usuario"]);
         $consulta->execute();
     }
-    public function finalizarAtendimento($id_usuario){
-        $consulta = $this->conexao->prepare("UPDATE usuarios SET ajuda=null WHERE id_usuario=:p1");
-        $consulta->bindValue(":p1",$id_usuario);
-        $consulta->execute();
-        $consulta = $this->conexao->prepare("UPDATE log SET id_usuario_finalizou=:p1, data_finalizacao=NOW() WHERE id_usuario_solicitou=:p2 AND id_usuario_finalizou IS NULL");
-        $consulta->bindValue(":p1",$_SESSION["id_usuario"]);
-        $consulta->bindValue(":p2",$id_usuario);
-        $consulta->execute();
+    public function finalizarAtendimento(){
+        if($_SESSION["nivel"]=="Professor"){
+            $consulta = $this->conexao->prepare("UPDATE atendimentos SET data_finalizacao=NOW(), id_usuario_finalizou=:p2 WHERE nome_usuario=:p1 AND data_finalizacao IS NULL");
+            $consulta->bindValue(":p1",$_GET["usuario"]);
+            $consulta->bindValue(":p2",$_SESSION["id_usuario"]);
+            $consulta->execute();
+        }else{
+            $consulta = $this->conexao->prepare("UPDATE atendimentos SET data_finalizacao=NOW() WHERE nome_usuario=:p1 AND data_finalizacao IS NULL");
+            $consulta->bindValue(":p1",$_SESSION["usuario"]);
+            $consulta->execute();
+        }
     }
 }
