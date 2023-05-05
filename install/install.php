@@ -45,7 +45,7 @@
           ENGINE = InnoDB
           DEFAULT CHARACTER SET = utf8");
         $objeto->conexao->exec("INSERT INTO usuarios VALUES
-            (0,'Administrador','admin',MD5('admin'),NULL,'Professor')");
+            (0,'Administrador','admin',MD5('admin'),'Professor')");
     }catch(Exception $ex){
         echo "<p>O banco já foi criado!</p>";
         die();
